@@ -1,4 +1,4 @@
-import React from "react";
+import "./ExpenseDetails.css";
 
 const ExpenseDetails = () => {
   return (

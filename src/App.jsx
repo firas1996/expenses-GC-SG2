@@ -1,3 +1,4 @@
+import Container from "./components/Container";
 import ExpenseDetails from "./components/ExpenseDetails";
 
 function App() {
@@ -29,16 +30,7 @@ function App() {
   ];
   return (
     <div>
-      {expensesData.map((expense) => {
-        return (
-          <ExpenseDetails
-            key={expense.id}
-            title={expense.title}
-            price={expense.price}
-            date={expense.date}
-          />
-        );
-      })}
+      <Container data={expensesData} />
     </div>
   );
 }

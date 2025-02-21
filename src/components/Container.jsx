@@ -1,9 +1,11 @@
 import "./Container.css";
 import ExpenseDetails from "./ExpenseDetails";
+import ExpensesFilter from "./ExpensesFilter";
 
 const Container = ({ data }) => {
   return (
     <div className="expenses">
+      <ExpensesFilter />
       {data.map((expense) => {
         return (
           <ExpenseDetails

@@ -1,8 +1,8 @@
-import React from "react";
+import "./ExpensesFilter.css";
 
 const ExpensesFilter = () => {
   return (
-    <div>
+    <div className="expenses-filter">
       <label>Filter By Year:</label>
       <select>
         <option>All</option>

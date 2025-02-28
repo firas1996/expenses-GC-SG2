@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Container.css";
 import ExpenseDetails from "./ExpenseDetails";
 import ExpensesFilter from "./ExpensesFilter";
+import Chart from "./Chart";
 
 const Container = ({ data }) => {
   const years = [
@@ -21,6 +22,7 @@ const Container = ({ data }) => {
         selectedYear={selectedYear}
         setSelectedYear={setSelectedYear}
       />
+      <Chart />
       {data2.map((expense) => {
         return (
           <ExpenseDetails

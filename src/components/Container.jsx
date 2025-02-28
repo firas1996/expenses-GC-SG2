@@ -7,7 +7,6 @@ const Container = ({ data }) => {
     "All",
     ...new Set(data.map((el) => el.date.getFullYear()).sort()),
   ];
-  console.log(years);
   return (
     <div className="expenses">
       <ExpensesFilter years={years} />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Container.css";
 import ExpenseDetails from "./ExpenseDetails";
 import ExpensesFilter from "./ExpensesFilter";
@@ -7,10 +8,20 @@ const Container = ({ data }) => {
     "All",
     ...new Set(data.map((el) => el.date.getFullYear()).sort()),
   ];
+  const [selectedYear, setSelectedYear] = useState(years[0]);
+  const data2 = data.filter((expense) => {
+    return selectedYear == "All"
+      ? true
+      : expense.date.getFullYear() == selectedYear;
+  });
   return (
     <div className="expenses">
-      <ExpensesFilter years={years} />
-      {data.map((expense) => {
+      <ExpensesFilter
+        years={years}
+        selectedYear={selectedYear}
+        setSelectedYear={setSelectedYear}
+      />
+      {data2.map((expense) => {
         return (
           <ExpenseDetails
             key={expense.id}

@@ -19,12 +19,22 @@ const Chart = ({ data }) => {
   data.forEach((el) => {
     return (chartData[el.date.getMonth()].value += el.price);
   });
-  //   const max =
-  console.log(chartData);
+  const values = chartData.map((el) => el.value);
+  const max = Math.max(...values);
+  const total = values.reduce((acc, num) => acc + num);
+  console.log(total);
   return (
     <div className="chart">
       {chartData.map((item) => {
-        return <ChartBar key={item.name} name={item.name} value={item.value} />;
+        return (
+          <ChartBar
+            key={item.name}
+            name={item.name}
+            value={item.value}
+            max={max}
+            total={total}
+          />
+        );
       })}
     </div>
   );

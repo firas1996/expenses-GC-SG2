@@ -1,7 +1,7 @@
 import "./Chart.css";
 import ChartBar from "./ChartBar";
 
-const Chart = () => {
+const Chart = ({ data }) => {
   const chartData = [
     { name: "Jan", value: 0 },
     { name: "Feb", value: 0 },
@@ -16,6 +16,11 @@ const Chart = () => {
     { name: "Nov", value: 0 },
     { name: "Dec", value: 0 },
   ];
+  data.forEach((el) => {
+    return (chartData[el.date.getMonth()].value += el.price);
+  });
+  //   const max =
+  console.log(chartData);
   return (
     <div className="chart">
       {chartData.map((item) => {

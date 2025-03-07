@@ -1,3 +1,4 @@
+import AddNewExpense from "./components/AddNewExpense";
 import Container from "./components/Container";
 import ExpenseDetails from "./components/ExpenseDetails";
 
@@ -30,6 +31,7 @@ function App() {
   ];
   return (
     <div>
+      <AddNewExpense />
       <Container data={expensesData} />
     </div>
   );

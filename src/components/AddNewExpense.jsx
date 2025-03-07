@@ -34,6 +34,7 @@ const AddNewExpense = () => {
               placeholder="Title"
               name="title"
               onChange={handelInputChange}
+              value={inputs.title}
             />
           </div>
           <div className="new-expense__control">
@@ -46,6 +47,7 @@ const AddNewExpense = () => {
               step="0.01"
               name="price"
               onChange={handelInputChange}
+              value={inputs.price}
             />
           </div>
           <div className="new-expense__control">
@@ -57,6 +59,7 @@ const AddNewExpense = () => {
               max={maxDate}
               name="date"
               onChange={handelInputChange}
+              value={inputs.date}
             />
           </div>
         </div>

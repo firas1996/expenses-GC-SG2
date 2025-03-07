@@ -22,7 +22,7 @@ const Container = ({ data }) => {
         selectedYear={selectedYear}
         setSelectedYear={setSelectedYear}
       />
-      <Chart data={data} />
+      <Chart data={data2} />
       {data2.map((expense) => {
         return (
           <ExpenseDetails

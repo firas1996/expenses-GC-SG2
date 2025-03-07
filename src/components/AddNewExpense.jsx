@@ -16,7 +16,12 @@ const AddNewExpense = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputs);
+    console.log({
+      id: Math.random(),
+      title: inputs.title,
+      price: +inputs.price,
+      date: new Date(inputs.date),
+    });
     setInputs({
       title: "",
       price: "",

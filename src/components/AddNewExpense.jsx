@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AddNewExpense.css";
 
-const AddNewExpense = () => {
+const AddNewExpense = ({ getData }) => {
   const thisYear = new Date().getFullYear();
   const minDate = thisYear - 2 + "-01-01";
   const maxDate = `${thisYear + 2}-12-31`;
@@ -16,7 +16,7 @@ const AddNewExpense = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log({
+    getData({
       id: Math.random(),
       title: inputs.title,
       price: +inputs.price,

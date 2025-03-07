@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AddNewExpense from "./components/AddNewExpense";
 import Container from "./components/Container";
 import ExpenseDetails from "./components/ExpenseDetails";
@@ -29,10 +30,14 @@ function App() {
       date: new Date("2023-10-14"),
     },
   ];
+  const [allExpenses, setAllExpenses] = useState(expensesData);
+  const getData = (data) => {
+    setAllExpenses([data, ...allExpenses]);
+  };
   return (
     <div>
-      <AddNewExpense />
-      <Container data={expensesData} />
+      <AddNewExpense getData={getData} />
+      <Container data={allExpenses} />
     </div>
   );
 }

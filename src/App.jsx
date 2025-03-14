@@ -34,10 +34,10 @@ function App() {
     setAllExpenses([data, ...allExpenses]);
   };
   return (
-    <div>
+    <>
       <AddNewExpense getData={getData} />
       <Container data={allExpenses} />
-    </div>
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AddNewExpense from "./components/AddNewExpense";
 import Container from "./components/Container";
-import ExpenseDetails from "./components/ExpenseDetails";
 
 function App() {
   const expensesData = [

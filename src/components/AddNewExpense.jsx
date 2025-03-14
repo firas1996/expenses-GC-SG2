@@ -10,6 +10,16 @@ const AddNewExpense = ({ getData }) => {
     price: "",
     date: "",
   });
+  const [visibelForm, setVisibelForm] = useState(false);
+  // const openFormHandler = () => {
+  //   setVisibelForm(true);
+  // };
+  // const closeFormHandler = () => {
+  //   setVisibelForm(false);
+  // };
+  const formHandler = () => {
+    setVisibelForm(!visibelForm);
+  };
   const handelInputChange = ({ target }) => {
     const { name, value } = target;
     setInputs({ ...inputs, [name]: value });
@@ -30,49 +40,103 @@ const AddNewExpense = ({ getData }) => {
   };
   return (
     <div className="new-expense">
-      <form onSubmit={submitHandler}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
-            <label>Title</label>
-            <input
-              required
-              placeholder="Title"
-              name="title"
-              onChange={handelInputChange}
-              value={inputs.title}
-            />
+      {/* {!visibelForm && <button onClick={formHandler}>Add New Expense</button>}
+      {visibelForm && (
+        <form onSubmit={submitHandler}>
+          <div className="new-expense__controls">
+            <div className="new-expense__control">
+              <label>Title</label>
+              <input
+                required
+                placeholder="Title"
+                name="title"
+                onChange={handelInputChange}
+                value={inputs.title}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Price</label>
+              <input
+                required
+                placeholder="Price"
+                type="number"
+                min="0"
+                step="0.01"
+                name="price"
+                onChange={handelInputChange}
+                value={inputs.price}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Date</label>
+              <input
+                required
+                type="date"
+                min={minDate}
+                max={maxDate}
+                name="date"
+                onChange={handelInputChange}
+                value={inputs.date}
+              />
+            </div>
           </div>
-          <div className="new-expense__control">
-            <label>Price</label>
-            <input
-              required
-              placeholder="Price"
-              type="number"
-              min="0"
-              step="0.01"
-              name="price"
-              onChange={handelInputChange}
-              value={inputs.price}
-            />
+          <div className="new-expense__actions">
+            <button type="button" onClick={formHandler}>
+              Cancel
+            </button>
+            <button type="submit">Add Expense</button>
           </div>
-          <div className="new-expense__control">
-            <label>Date</label>
-            <input
-              required
-              type="date"
-              min={minDate}
-              max={maxDate}
-              name="date"
-              onChange={handelInputChange}
-              value={inputs.date}
-            />
+        </form>
+      )} */}
+      {visibelForm ? (
+        <form onSubmit={submitHandler}>
+          <div className="new-expense__controls">
+            <div className="new-expense__control">
+              <label>Title</label>
+              <input
+                required
+                placeholder="Title"
+                name="title"
+                onChange={handelInputChange}
+                value={inputs.title}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Price</label>
+              <input
+                required
+                placeholder="Price"
+                type="number"
+                min="0"
+                step="0.01"
+                name="price"
+                onChange={handelInputChange}
+                value={inputs.price}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Date</label>
+              <input
+                required
+                type="date"
+                min={minDate}
+                max={maxDate}
+                name="date"
+                onChange={handelInputChange}
+                value={inputs.date}
+              />
+            </div>
           </div>
-        </div>
-        <div className="new-expense__actions">
-          <button>Cancel</button>
-          <button type="submit">Add Expense</button>
-        </div>
-      </form>
+          <div className="new-expense__actions">
+            <button type="button" onClick={formHandler}>
+              Cancel
+            </button>
+            <button type="submit">Add Expense</button>
+          </div>
+        </form>
+      ) : (
+        <button onClick={formHandler}>Add New Expense</button>
+      )}
     </div>
   );
 };
